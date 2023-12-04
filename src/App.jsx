@@ -1,7 +1,18 @@
 import "./App.css";
+import Categories from "./components/Categories";
+import Navbar from "./components/Navbar";
+import Search from "./components/Search";
+import TopCategories from "./components/TopCategories";
 
 function App() {
-  return <h1>working fine</h1>;
+  return (
+    <div className="flex justify-center items-center flex-col">
+      <Navbar />
+      <Search />
+      <TopCategories />
+      <Categories />
+    </div>
+  );
 }
 
 export default App;
