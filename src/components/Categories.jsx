@@ -18,7 +18,7 @@ const Categories = () => {
                 See All
               </div>
             </div>
-            <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-4">
               {topCatData.products.map((productData) => {
                 return (
                   <ItemsCard productData={productData} key={productData.id} />

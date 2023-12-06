@@ -1,4 +1,3 @@
-import React from "react";
 import data from "../data";
 
 const TopCategories = () => {
@@ -13,9 +12,16 @@ const TopCategories = () => {
       <div className="flex overflow-x-hidden">
         {data.top_categories.map((topData) => {
           return (
-            <div className="flex items-center flex-col min-w-[10rem] h-52 mr-8">
-              <img src={URL} alt="" className="w-full h-[80%] rounded-lg" />
-              <div className="text-sm mt-2 font-semibold whitespace-wrap max-w-[12rem] overflow-hidden">
+            <div
+              key={topData.id}
+              className="flex items-center flex-col min-w-[10rem] h-52 mr-6 overflow-hidden cursor-pointer"
+            >
+              <img
+                src={URL}
+                alt="category-image"
+                className="w-full h-[80%] rounded-lg duration-300 hover:scale-105"
+              />
+              <div className="text-sm mt-2 font-semibold max-w-[12rem] overflow-hidden">
                 {topData.name}
               </div>
             </div>
