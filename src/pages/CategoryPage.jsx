@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import data from "../data";
+import { Link } from "react-router-dom";
 
 const CategoryPage = () => {
   const URL =
@@ -14,19 +15,21 @@ const CategoryPage = () => {
           </div>
           {data.top_categories.map((listedCat) => {
             return (
-              <div
-                class="w-60 shadow-md mb-6 duration-300 hover:scale-105 rounded-lg cursor-pointer"
-                key={listedCat.id}
-              >
-                <img
-                  src={URL}
-                  alt="Category-image"
-                  className="w-full rounded-lg"
-                />
-                <div className="h-12 text-center flex items-center justify-center text-sm font-semibold">
-                  {listedCat.name}
+              <Link to={`/details/${listedCat.id}`}>
+                <div
+                  class="w-60 shadow-md mb-6 duration-300 hover:scale-105 rounded-lg cursor-pointer"
+                  key={listedCat.id}
+                >
+                  <img
+                    src={URL}
+                    alt="Category-image"
+                    className="w-full rounded-lg"
+                  />
+                  <div className="h-12 text-center flex items-center justify-center text-sm font-semibold">
+                    {listedCat.name}
+                  </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

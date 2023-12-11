@@ -5,6 +5,8 @@ import CategoryPage from "./pages/CategoryPage";
 import Bag from "./pages/Bag";
 import Orders from "./pages/Orders";
 import Home from "./pages/Home";
+import CategoryDetail from "./pages/CategoryDetail";
+import ItemPage from "./pages/ItemPage";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "orders",
     element: <Orders />,
+  },
+  {
+    path: "details/:id",
+    element: <CategoryDetail />,
   },
 ]);
 
