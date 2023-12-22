@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import data from "../data";
 import ItemsCard from "./ItemsCard";
 
-const Categories = () => {
+const Categories = ({ search }) => {
+  console.log(search);
   return (
     <>
       {data.top_products.map((topCatData) => {
@@ -14,16 +16,31 @@ const Categories = () => {
                   {topCatData.product_count}
                 </div>
               </div>
-              <div className="capitalize mr-8 text-blue-600 font-medium">
-                See All
-              </div>
+              <Link to={`/details/${topCatData.category_id}`}>
+                <div className="capitalize mr-8 text-blue-600 font-medium">
+                  See All
+                </div>
+              </Link>
             </div>
             <div className="flex flex-wrap items-center gap-4">
-              {topCatData.products.map((productData) => {
-                return (
-                  <ItemsCard productData={productData} key={productData.id} />
-                );
-              })}
+              {topCatData.products
+                .filter((product) =>
+                  search.trim("") === ""
+                    ? true
+                    : product.name.toLowerCase().includes(search.toLowerCase())
+                )
+                .map((productData) => {
+                  return (
+                    <Link
+                      to={`details/${topCatData.category_id}/${productData.id}`}
+                    >
+                      <ItemsCard
+                        productData={productData}
+                        key={productData.id}
+                      />
+                    </Link>
+                  );
+                })}
             </div>
           </div>
         );

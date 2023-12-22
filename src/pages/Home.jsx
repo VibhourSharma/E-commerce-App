@@ -1,19 +1,19 @@
-import React from "react";
-import Search from "../components/Search";
+import React, { useState } from "react";
+import SearchBar from "../components/SearchBar";
 import TopCategories from "../components/TopCategories";
 import Categories from "../components/Categories";
-import { NavLink } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "../App.css";
 
 const Home = () => {
+  const [search, setSearch] = useState("");
   return (
     <>
       <div className="flex justify-center items-center flex-col">
         <Navbar />
-        <Search />
+        <SearchBar search={search} setSearch={setSearch} />
         <TopCategories />
-        <Categories />
+        <Categories search={search} />
       </div>
     </>
   );
