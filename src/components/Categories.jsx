@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import data from "../data";
 import ItemsCard from "./ItemsCard";
 
-const Categories = ({ search }) => {
-  console.log(search);
+const Categories = ({ search, handleClick }) => {
   return (
     <>
       {data.top_products.map((topCatData) => {
@@ -31,14 +30,15 @@ const Categories = ({ search }) => {
                 )
                 .map((productData) => {
                   return (
-                    <Link
-                      to={`details/${topCatData.category_id}/${productData.id}`}
-                    >
-                      <ItemsCard
-                        productData={productData}
-                        key={productData.id}
-                      />
-                    </Link>
+                    // <Link
+                    //   to={`details/${topCatData.category_id}/${productData.id}`}
+                    // >
+                    <ItemsCard
+                      productData={productData}
+                      key={productData.id}
+                      handleClick={handleClick}
+                    />
+                    // </Link>
                   );
                 })}
             </div>
