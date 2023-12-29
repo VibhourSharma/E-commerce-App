@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import data from "../data";
 
 const TopCategories = () => {
@@ -6,25 +7,25 @@ const TopCategories = () => {
 
   return (
     <div className="w-[73%] flex flex-col font-default">
-      <div className="flex items-center justify-start text-xl font-bold mb-4">
+      <div className="flex items-center justify-between text-xl font-bold mb-4">
         Top Categories
       </div>
-      <div className="flex overflow-x-hidden">
+
+      <div className="flex gap-5 overflow-x-hidden">
         {data.top_categories.map((topData) => {
           return (
-            <div
-              key={topData.id}
-              className="flex items-center flex-col min-w-[10rem] h-52 mr-6 overflow-hidden cursor-pointer"
-            >
-              <img
-                src={URL}
-                alt="category-image"
-                className="w-full h-[80%] rounded-lg duration-300 hover:scale-105"
-              />
-              <div className="text-sm mt-2 font-semibold max-w-[12rem] overflow-hidden">
-                {topData.name}
+            <Link key={topData.id} to={`/details/${topData.id}`}>
+              <div className=" min-w-[9.5rem] cursor-pointer relative hover:brightness-90 ease-in duration-300">
+                <img
+                  src={topData.image}
+                  alt="category-image"
+                  className="w-full h-[80%] rounded-lg brightness-75"
+                />
+                <div className="text-sm lowercase font-[500] tracking-wide absolute bottom-0 mb-4 pl-2 text-white max-w-[80%]">
+                  {topData.name}
+                </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
