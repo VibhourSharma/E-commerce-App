@@ -4,13 +4,10 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 
 const CategoryDetail = () => {
   const { id } = useParams();
-
   const navigate = useNavigate();
-
-  const CategoryDetails = data.top_products.find((items) => {
-    return items.category_id === +id;
-  });
-
+  const CategoryDetails = data.top_products.find(
+    (items) => items.category_id === +id
+  );
   const URL =
     "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1981&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
@@ -36,10 +33,11 @@ const CategoryDetail = () => {
                 itemDetails.original_cost) *
                 100
             );
+
             const itemLink = `/details/${CategoryDetails.category_id}/${itemDetails.id}`;
             return (
-              <Link to={itemLink}>
-                <div className="relative flex justify-between flex-col overflow-hidden rounded-lg border border-gray-100 bg-white w-[16.5rem] h-[24rem] p-2">
+              <div className="relative flex justify-between flex-col overflow-hidden rounded-lg border border-gray-100 bg-white w-[16.5rem] h-[24rem] p-2">
+                <Link to={itemLink}>
                   <div className="relative flex h-56 overflow-hidden rounded-xl">
                     <img
                       className="object-fit w-full h-full"
@@ -61,21 +59,21 @@ const CategoryDetail = () => {
                     {itemDetails.name}
                   </div>
                   <div>{itemDetails.base_qty}</div>
-                  <div className="py-2 flex justify-between">
-                    <div className="flex items-center justify-center">
-                      <span className="text-xl font-bold text-slate-900">
-                        ₹{itemDetails.base_cost}
-                      </span>
-                      <span className="text-sm text-slate-900 line-through">
-                        ₹{itemDetails.original_cost}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-center rounded-md text-blue-700 py-2 px-2 text-center text-sm font-medium border border-blue-700 cursor-pointer">
-                      Add to cart
-                    </div>
+                </Link>
+                <div className="py-2 flex justify-between">
+                  <div className="flex items-center justify-center">
+                    <span className="text-xl font-bold text-slate-900">
+                      ₹{itemDetails.base_cost}
+                    </span>
+                    <span className="text-sm text-slate-900 line-through">
+                      ₹{itemDetails.original_cost}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-center rounded-md text-blue-700 py-2 px-2 text-center text-sm font-medium border border-blue-700 cursor-pointer">
+                    Add to cart
                   </div>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>

@@ -30,15 +30,12 @@ const Categories = ({ search, handleClick }) => {
                 )
                 .map((productData) => {
                   return (
-                    // <Link
-                    //   to={`details/${topCatData.category_id}/${productData.id}`}
-                    // >
                     <ItemsCard
                       productData={productData}
                       key={productData.id}
                       handleClick={handleClick}
+                      topCatData={topCatData}
                     />
-                    // </Link>
                   );
                 })}
             </div>
