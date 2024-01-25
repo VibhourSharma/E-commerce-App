@@ -11,7 +11,7 @@ const TopCategories = () => {
         Top Categories
       </div>
 
-      <div className="flex gap-5 overflow-x-hidden">
+      <div className="flex gap-5 overflow-x-scroll no-scrollbar">
         {data.top_categories.map((topData) => {
           return (
             <Link key={topData.id} to={`/details/${topData.id}`}>
