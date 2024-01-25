@@ -7,11 +7,16 @@ import Orders from "./pages/Orders";
 import Home from "./pages/Home";
 import CategoryDetail from "./pages/CategoryDetail";
 import ItemPage from "./pages/ItemPage";
+import SearchResults from "./pages/SearchResults";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/search",
+    element: <SearchResults />,
   },
   {
     path: "categories",
@@ -36,7 +41,5 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <RouterProvider router={router} />
 );
