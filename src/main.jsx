@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import CategoryDetail from "./pages/CategoryDetail";
 import ItemPage from "./pages/ItemPage";
 import SearchResults from "./pages/SearchResults";
+import { CartProvider } from "./context/Cart";
+import Checkout from "./pages/Checkout";
 
 const router = createBrowserRouter([
   {
@@ -31,15 +33,21 @@ const router = createBrowserRouter([
     element: <Orders />,
   },
   {
-    path: "details/:id",
+    path: "details/:categoryId",
     element: <CategoryDetail />,
   },
   {
-    path: "details/:id/:id",
+    path: "product/:productId",
     element: <ItemPage />,
+  },
+  {
+    path: "/checkout",
+    element: <Checkout />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <CartProvider>
+    <RouterProvider router={router} />
+  </CartProvider>
 );
