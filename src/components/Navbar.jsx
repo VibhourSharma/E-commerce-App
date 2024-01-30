@@ -1,10 +1,14 @@
 import { FiHome, FiShoppingBag, FiList } from "react-icons/fi";
 import { BiCategoryAlt } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
+import { CartContext } from "../context/Cart";
+import { useContext } from "react";
 
-const Navbar = ({ size }) => {
+const Navbar = () => {
+  const { cartItems } = useContext(CartContext);
+
   return (
-    <div className="flex w-full h-16 items-center justify-center font-default fixed left-0 bottom-0 width-[100%]  shadow-sm bg-white z-50">
+    <div className="flex w-full h-16 items-center justify-center font-default top-0 fixed width-[100%] shadow-sm bg-white z-50">
       <div className="flex w-[73%] items-center justify-around h-full">
         <div>
           <NavLink
@@ -44,11 +48,11 @@ const Navbar = ({ size }) => {
               <FiShoppingBag className="text-3xl" />
               <span className="text-xs">Bag</span>
             </div>
-            {size === 0 ? (
+            {cartItems.length === 0 ? (
               " "
             ) : (
-              <span className="text-center font-semibold absolute top-0 right-[37rem] w-5 text-[13px] rounded-[50%] bg-red-600 text-white">
-                {size}
+              <span className="text-center font-semibold absolute top-0 w-5 text-[12px] rounded-[50%] bg-red-600 text-white ml-5">
+                {cartItems.length}
               </span>
             )}
           </NavLink>

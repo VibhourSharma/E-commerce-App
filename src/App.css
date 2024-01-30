@@ -12,3 +12,29 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.responsive-bag {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: full;
+  gap: 100px;
+}
+
+.bag-navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 600px) {
+  .responsive-bag {
+    font-size: 12px;
+    gap: 0;
+  }
+  .bag-navbar {
+    font-size: 8px;
+  }
+}

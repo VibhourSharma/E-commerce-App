@@ -33,7 +33,7 @@ const Bag = () => {
     <>
       <Navbar />
       <div className="w-full h-full flex items-center justify-center font-default">
-        <div className="flex items-center flex-col justify-center mt-20 w-[73%] text-center">
+        <div className="mt-20 w-[73%] text-center">
           {cartItems.length === 0 ? (
             <div className="w-full h-[60vh] flex flex-col items-center justify-center">
               <img src={emptybag} alt="empty bag" className="p-4 w-[40%]" />
@@ -46,10 +46,10 @@ const Bag = () => {
             </div>
           ) : (
             <>
-              <span className="w-full font-medium flex items-center justify-between mb-4">
+              <span className="bag-navbar">
                 <div className="text-xl flex ml-4 font-bold normal-case">
                   Total Products
-                  <div className="ml-3 bg-blue-500 text-[#F2F2F2] rounded-lg text-sm flex items-center justify-center w-7 font-medium">
+                  <div className="ml-3 bg-blue-500 text-[#F2F2F2] rounded-lg text-sm flex items-center justify-center w-7 h-8 font-medium">
                     {cartItems.length}
                   </div>
                 </div>
@@ -63,7 +63,7 @@ const Bag = () => {
                   </span>
                 </button>
               </span>
-              <div className="w-full flex justify-between">
+              <div className="responsive-bag">
                 <div>
                   {cartItems.map((presentItem) => (
                     <>

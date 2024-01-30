@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { CartContext } from "../context/Cart";
 import { useContext } from "react";
 import { FiShoppingBag } from "react-icons/fi";
+import TotalOff from "../components/TotalOff.jsx";
 
 const ItemPage = () => {
   const { productId } = useParams();
@@ -27,16 +28,10 @@ const ItemPage = () => {
     (cartItem) => cartItem.id === productDetails.id
   );
 
-  const discount = Math.floor(
-    ((productDetails.original_cost - productDetails.base_cost) /
-      productDetails.original_cost) *
-      100
-  );
-
   return (
     <>
-      <div className="w-full flex items-center justify-center flex-col">
-        <div className="my-4 py-3 bg-[#F2F2F2] rounded-lg w-[73%]">
+      <div className="w-full flex items-center justify-center flex-col font-default">
+        <div className="my-4 py-3 rounded-lg w-[60%]">
           <div className="text-lg flex items-center ml-4 font-bold normal-case">
             <button className="p-2 mr-4" onClick={goBack}>
               <IoMdArrowRoundBack />
@@ -64,15 +59,13 @@ const ItemPage = () => {
         </div>
       </div>
       <div className="w-full flex items-center justify-center font-default">
-        <div className="w-[73%] flex">
-          <div className="h-[50%] w-[50%]">
-            <img
-              src={productDetails.image}
-              alt={`image: ${productDetails.id}`}
-              className="w-full h-full rounded-lg"
-            />
-          </div>
-          <div className="w-[70%] mt-8 ml-12">
+        <div className="w-[73%] justify-center flex flex-wrap">
+          <img
+            src={productDetails.image}
+            alt={`image: ${productDetails.id}`}
+            className="h-96 w-96 rounded-lg"
+          />
+          <div className="mt-8 ml-12">
             <div className="flex flex-col">
               <span className="tracking-wide text-lg">
                 {productDetails.name}
@@ -85,23 +78,20 @@ const ItemPage = () => {
                 <span className="text-sm text-slate-900 line-through">
                   ₹{productDetails.original_cost}
                 </span>
-                {discount !== 0 ? (
-                  <span className="m-2 bg-orange-500 px-2 text-center text-sm font-medium text-white rounded-md">
-                    {discount}% Off
-                  </span>
-                ) : (
-                  ""
-                )}
+                <TotalOff
+                  base_cost={productDetails.base_cost}
+                  original_cost={productDetails.original_cost}
+                />
               </div>
             </div>
 
-            <div className="bg-blue-600 text-white h-12 w-[47%] rounded-lg mt-12 flex items-center justify-center">
+            <div className="border border-[#3A7BC8] text-[#3A7BC8] h-12 w-72 rounded-lg mt-12 flex items-center justify-center">
               {!alreadyAdded ? (
                 <button
                   onClick={() => addToCart(productDetails)}
                   className="h-full w-full"
                 >
-                  Add To Cart
+                  Add To Bag
                 </button>
               ) : (
                 <>

@@ -9,7 +9,12 @@ const AddToCartBtn = ({ cartItemData }) => {
   return (
     <div className="flex items-center justify-center rounded-md text-blue-700 w-[5rem] h-[2.2rem] text-center text-sm font-medium border border-blue-700 cursor-pointer">
       {!alreadyAdded ? (
-        <button onClick={() => addToCart(cartItemData)}>Add +</button>
+        <button
+          onClick={() => addToCart(cartItemData)}
+          className="h-full w-full"
+        >
+          Add +
+        </button>
       ) : (
         <>
           <button

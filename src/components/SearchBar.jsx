@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { IoIosSearch } from "react-icons/io";
 
 const SearchBar = () => {
@@ -16,6 +16,14 @@ const SearchBar = () => {
     navigate(`/search?search_query=${search}`);
   };
 
+  const handleClick = () => {
+    if (search.trim() === "") {
+      return;
+    } else {
+      handleSearchButtonClick();
+    }
+  };
+
   return (
     <div className="flex items-center justify-center mt-20 mb-6 w-[73%]">
       <input
@@ -27,7 +35,7 @@ const SearchBar = () => {
         placeholder="Search for products..."
       />
       <button
-        onClick={handleSearchButtonClick}
+        onClick={handleClick}
         className="flex items-center justify-center w-12 h-10 text-2xl ml-2 rounded-lg bg-[#3B82F6] text-white"
       >
         <IoIosSearch />
