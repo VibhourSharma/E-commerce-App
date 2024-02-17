@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import { MdDeleteForever } from "react-icons/md";
 import { CartContext } from "../context/Cart";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import emptybag from "../assets/empty bag.svg";
 

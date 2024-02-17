@@ -10,6 +10,7 @@ import ItemPage from "./pages/ItemPage";
 import SearchResults from "./pages/SearchResults";
 import { CartProvider } from "./context/Cart";
 import Checkout from "./pages/Checkout";
+import "./App.css";
 
 const router = createBrowserRouter([
   {
