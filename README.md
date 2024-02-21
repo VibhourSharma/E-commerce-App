@@ -1,3 +1,6 @@
+
+![ecom-recording-ezgif com-optimize](https://github.com/VibhourSharma/E-commerce-App/assets/110191186/2dbe2b4f-b705-4f5f-93d3-c9ea5ac0e32b)
+
 # E-commerce Store
 
 ## **Project Overview**
